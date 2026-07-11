@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-cyan: #00f0ff;
+  --neon-magenta: #ff00aa;
+  --neon-blue: #4d9eff;
+  --bg-dark: #0a0a0f;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Neon glow effects */
+.neon-cyan {
+  text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+}
+
+.neon-magenta {
+  text-shadow: 0 0 10px #ff00aa, 0 0 20px #ff00aa;
+}
+
+/* Echo Energy Bar */
+.energy-bar {
+  transition: height 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 
+    0 0 20px #00f0ff,
+    0 0 40px #00f0ff,
+    inset 0 0 20px rgba(255,255,255,0.3);
+}
+
+.energy-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #00f0ff;
+  border-radius: 50%;
+  animation: energy-float 1.2s infinite ease-out;
+  box-shadow: 0 0 8px #00f0ff;
+}
+
+@keyframes energy-float {
+  0% { transform: translateY(0); opacity: 0.9; }
+  100% { transform: translateY(-60px); opacity: 0; }
+}
+
+/* Board styles */
+.konva-container {
+  touch-action: none;
+}
+
+/* Phase indicator */
+.phase-active {
+  animation: phase-pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes phase-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Holographic panels */
+.holo-panel {
+  background: rgba(15, 15, 25, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.1);
+}
+
+/* Screen reader only (visually hidden but accessible) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Phase transition animation */
+.phase-transition {
+  animation: phase-flash 0.5s ease-out;
+}
+
+@keyframes phase-flash {
+  0% { box-shadow: 0 0 0 rgba(0, 240, 255, 0); }
+  50% { box-shadow: 0 0 40px rgba(0, 240, 255, 0.4); }
+  100% { box-shadow: 0 0 0 rgba(0, 240, 255, 0); }
+}
+
+/* Capture animation */
+@keyframes capture-fade {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.5; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+.capture-anim {
+  animation: capture-fade 0.4s ease-out forwards;
+}
+
+/* Move preview indicator */
+.move-preview {
+  background-color: rgba(0, 240, 255, 0.15);
+  border: 1px dashed rgba(0, 240, 255, 0.5);
+  border-radius: 50%;
+}
+
+/* Mobile-first responsive */
+@media (max-width: 768px) {
+  .game-container {
+    padding: 8px;
+  }
+}
