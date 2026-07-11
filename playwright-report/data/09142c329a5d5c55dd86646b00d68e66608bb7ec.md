@@ -1,0 +1,24 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: game.spec.ts >> NEXUS FORGE >> Echo Phase — Piece Movement >> can select and move a piece in echo phase
+- Location: e2e\game.spec.ts:120:9
+
+# Error details
+
+```
+Error: browserType.launch: Executable doesn't exist at C:\Users\shaki\AppData\Local\ms-playwright\firefox-1532\firefox\firefox.exe
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     npx playwright install                                 ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+```
